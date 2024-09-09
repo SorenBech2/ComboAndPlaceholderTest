@@ -135,6 +135,9 @@ namespace ComboAndPlaceholderTest
            
             cardHolderNameEntry = new()
             {
+                Background = Colors.Transparent,
+                Stroke = Colors.Transparent,
+                FontSize = 18,
                 ClearButtonVisibility = ClearButtonVisibility.WhileEditing,
                 HeightRequest = 40, WidthRequest = 280,
                 Keyboard = Keyboard.Default,
@@ -142,6 +145,8 @@ namespace ComboAndPlaceholderTest
                 Placeholder = "Name",
                 HorizontalOptions = LayoutOptions.Start
             };
+            cardHolderNameEntry.SetAppThemeColor(SfMaskedEntry.TextColorProperty, Colors.Black, Colors.White);
+            cardHolderNameEntry.SetAppThemeColor(SfMaskedEntry.PlaceholderColorProperty, Colors.LightGray, Colors.DarkGray);
             getCardInfoGrid.AddWithSpan(cardHolderNameEntry, 1, 1, 1, 4);
             getCardInfoGrid.AddWithSpan(new Line()
             {
@@ -174,8 +179,8 @@ namespace ComboAndPlaceholderTest
                 ShowBorder = false,
                 ValueMaskFormat = MaskedEntryMaskFormat.ExcludePromptAndLiterals,
             };
-            cardNumberEntry.SetAppThemeColor(SfMaskedEntry.TextColorProperty, Color.FromArgb("#FF003366"), Colors.WhiteSmoke);
-            cardNumberEntry.SetAppThemeColor(SfMaskedEntry.PlaceholderColorProperty, Colors.Gray, Colors.WhiteSmoke);   //TODO Dark mode needs defined
+            cardNumberEntry.SetAppThemeColor(SfMaskedEntry.TextColorProperty, Colors.Black, Colors.White);
+            cardNumberEntry.SetAppThemeColor(SfMaskedEntry.PlaceholderColorProperty, Colors.LightGray, Colors.DarkGray); 
             getCardInfoGrid.AddWithSpan(cardNumberEntry, 4, 1, 1, 4);
             getCardInfoGrid.AddWithSpan(new Line()
             {
@@ -184,16 +189,6 @@ namespace ComboAndPlaceholderTest
             }, 5, 0, 1, 5);
 
             // Valid until
-            Image calendar_icon = new()
-            {
-#if IOS
-                Margin = new Thickness(0, 5, 0, 0),
-#endif
-                Opacity = 0.8,
-                WidthRequest = 15
-            };
-            calendar_icon.SetAppTheme<FileImageSource>(Image.SourceProperty, "calendar_icon_light", "calendar_icon_dark");
-            getCardInfoGrid.Add(calendar_icon, 0, 7);
             getCardInfoGrid.AddWithSpan(new Label()
             {
                 Text = "Valid Until",
@@ -217,7 +212,8 @@ namespace ComboAndPlaceholderTest
                 HeightRequest = 40, WidthRequest = 70,
                 HorizontalTextAlignment = TextAlignment.End
             };
-            expiryMonthDropDown.SetAppThemeColor(SfComboBox.TextColorProperty, Color.FromArgb("#FF003366"), Colors.WhiteSmoke);
+            expiryMonthDropDown.SetAppThemeColor(SfComboBox.TextColorProperty, Colors.Black, Colors.White);
+            expiryMonthDropDown.SetAppThemeColor(SfComboBox.PlaceholderColorProperty, Colors.LightGray, Colors.DarkGray);
             getCardInfoGrid.Add(expiryMonthDropDown, 1, 7);
 
             SfComboBox expiryYearDropDown = new()
@@ -236,7 +232,8 @@ namespace ComboAndPlaceholderTest
                 HeightRequest = 40, WidthRequest = 85, 
                 HorizontalOptions = LayoutOptions.Start,
             };
-            expiryYearDropDown.SetAppThemeColor(SfComboBox.TextColorProperty, Color.FromArgb("#FF003366"), Colors.WhiteSmoke);
+            expiryYearDropDown.SetAppThemeColor(SfComboBox.TextColorProperty, Colors.LightGrey, Colors.DarkGray);
+            expiryYearDropDown.SetAppThemeColor(SfComboBox.PlaceholderColorProperty, Colors.LightGrey, Colors.DarkGray);
             getCardInfoGrid.Add(expiryYearDropDown, 2, 7);
             getCardInfoGrid.AddWithSpan(new Line() { X2 = 160 }, 8, 0, 1, 3);
 
@@ -249,6 +246,9 @@ namespace ComboAndPlaceholderTest
             }, 6, 3, 1, 2);
             securityCodeEntry = new()
             {
+                Background = Colors.Transparent,
+                Stroke = Colors.Transparent,
+                FontSize = 18,
                 HeightRequest = 40, WidthRequest = 55,
                 HidePromptOnLeave = true,
                 HorizontalOptions = LayoutOptions.Start,
@@ -264,7 +264,8 @@ namespace ComboAndPlaceholderTest
                 PromptChar = 'X',
                 ValueMaskFormat = MaskedEntryMaskFormat.ExcludePromptAndLiterals
             };
-   
+            securityCodeEntry.SetAppThemeColor(SfMaskedEntry.TextColorProperty, Colors.Black, Colors.White);
+            securityCodeEntry.SetAppThemeColor(SfMaskedEntry.PlaceholderColorProperty, Colors.LightGrey, Colors.DarkGray);
             getCardInfoGrid.Add(securityCodeEntry, 4, 7);
             getCardInfoGrid.AddWithSpan(new Line() { X2 = 70 }, 8, 3, 1, 2);
 
